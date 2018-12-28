@@ -1,0 +1,31 @@
+{
+  "name": "webrtcdemo",
+  "version": "1.0.0",
+  "description": "WebRTC 测试项目，基于 WebRTC 实现视频通话。",
+  "main": "index.js",
+  "keywords": [
+    "webRTC",
+    "demo",
+    "nodejs"
+  ],
+  "scripts": {
+    "start": "node src/index"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hezhii/WebRTCDemo.git"
+  },
+  "author": {
+    "name": "biu",
+    "email": "hezhou920@gmail.com",
+    "url": "https://www.whezh.com"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/hezhii/WebRTCDemo/issues"
+  },
+  "homepage": "https://github.com/hezhii/WebRTCDemo#readme",
+  "dependencies": {
+    "express": "^4.16.4"
+  }
+}
