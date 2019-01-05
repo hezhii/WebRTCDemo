@@ -9,10 +9,13 @@
     <link rel="stylesheet" href="index.css">
 </head>
 <body>
-<div>
-    <video id="local"></video>
-    <video id="remote"></video>
+<div class="container">
+    <video id="local" autoplay></video>
+    <div class="action">
+        <button id="getMediaBtn">Get user media</button>
+    </div>
 </div>
-<script src="main.js"></script>
+<script src="https://webrtc.github.io/adapter/adapter-latest.js"></script>
+<script src="index.js"></script>
 </body>
 </html>

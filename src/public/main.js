@@ -1,1 +1,0 @@
-const pc = new RTCPeerConnection();
