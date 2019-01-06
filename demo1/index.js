@@ -2,11 +2,13 @@ const localVideo = document.querySelector('#local');
 const remoteVideo = document.querySelector('#remote');
 const getMediaBtn = document.querySelector('#getMediaBtn');
 const connectBtn = document.querySelector('#connectBtn');
+const closeBtn = document.querySelector('#closeBtn');
 
 let pc1, pc2, localStream;
 
 getMediaBtn.addEventListener('click', getLocalStream);
 connectBtn.addEventListener('click', connect);
+closeBtn.addEventListener('click', close);
 
 function getLocalStream() {
   console.log('获取本地媒体流');
@@ -16,6 +18,7 @@ function getLocalStream() {
   }, function(stream) {
     localStream = stream;
     localVideo.srcObject = stream;
+    connectBtn.disabled = false;
   }, function(err) {
     console.error(`getUserMedia() error: ${err.name}`);
   });
@@ -23,6 +26,7 @@ function getLocalStream() {
 
 async function connect() {
   connectBtn.disabled = true;
+  closeBtn.disabled = false;
   console.log('开始连接连接');
 
   pc1 = new RTCPeerConnection({});
@@ -55,6 +59,16 @@ async function connect() {
 
   console.log('pc1 setRemoteDescription'); // 省去了 pc2 将 answer 发送给 pc1 的过程
   await pc1.setRemoteDescription(answer);
+}
+
+function close() {
+  console.log('关闭连接');
+  pc1.close();
+  pc2.close();
+  pc1 = null;
+  pc2 = null;
+  closeBtn.disabled = true;
+  connectBtn.disabled = false;
 }
 
 // 远程 pc2 实例获取到本地流
